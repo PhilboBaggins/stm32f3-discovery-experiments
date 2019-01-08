@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2018"
 authors = ["Phil <PhilboBaggins@users.noreply.github.com>"]
 readme = "README.md"
+description = "Experimenting with Rust on the STM32F3 Discovery board"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/PhilboBaggins/stm32f3-discovery-experiments"
 
 [dependencies]
 cortex-m = "0.5.8"
