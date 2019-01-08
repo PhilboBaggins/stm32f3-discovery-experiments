@@ -8,7 +8,7 @@
             "name": "Debug MCU with OpenOCD",
             "type": "gdb",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "cargo build",
             "cwd": "${workspaceRoot}",
             "target": "./target/thumbv7em-none-eabihf/debug/stm32_f3_discovery_experiments",
             "gdbpath": "arm-none-eabi-gdb",
