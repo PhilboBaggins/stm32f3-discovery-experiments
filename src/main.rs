@@ -1,3 +1,4 @@
+#![deny(unsafe_code)]
 #![no_std]
 #![no_main]
 
@@ -7,14 +8,43 @@ extern crate panic_halt; // you can put a breakpoint on `rust_begin_unwind` to c
 // extern crate panic_itm; // logs messages over ITM; requires ITM support
 // extern crate panic_semihosting; // logs messages to the host stderr; requires a debugger
 
-use cortex_m::asm;
 use cortex_m_rt::entry;
+
+pub use f3::{
+    hal::{delay::Delay, prelude},
+    led::Leds,
+};
+
+mod init;
+mod led_wheel;
 
 #[entry]
 fn main() -> ! {
-    asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
+    let (mut delay, mut leds): (Delay, Leds) = init::init();
+
+    led_wheel::blink(&mut leds, &mut delay, 10, 100);
 
     loop {
-        // your code goes here
+//        led_wheel::all_leds_off(&mut leds);
+//        delay.delay_ms(500_u16);
+//
+//        led_wheel::blurred_cycle(&mut leds, &mut delay, 3, 1000);
+//
+//        led_wheel::all_leds_off(&mut leds);
+//        delay.delay_ms(500_u16);
+//
+//        led_wheel::blink(&mut leds, &mut delay, 3, 1000);
+//
+//        led_wheel::all_leds_off(&mut leds);
+//        delay.delay_ms(500_u16);
+//
+//        led_wheel::on_then_off_cycle(&mut leds, &mut delay, 6, 500);
+
+//        led_wheel::all_leds_off(&mut leds);
+//        delay.delay_ms(500_u16);
+//
+//        led_wheel::on_then_off_cycle_2(&mut leds, &mut delay, 8, 500);
+
+        led_wheel::off_cycle(&mut leds, &mut delay, 3, 1000);
     }
 }

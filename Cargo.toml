@@ -25,6 +25,10 @@ panic-halt = "0.2.0"
 # features = ["rt"]
 # version = "0.7.1"
 
+[dependencies.f3]
+features = ["rt"]
+version = "0.6.1"
+
 # this lets you use `cargo fix`!
 [[bin]]
 name = "stm32_f3_discovery_experiments"
