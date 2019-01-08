@@ -2,7 +2,7 @@
 authors = ["Phil <PhilboBaggins@users.noreply.github.com>"]
 edition = "2018"
 readme = "README.md"
-name = "STM32F3-Discovery-Experiments"
+name = "stm32_f3_discovery_experiments"
 version = "0.1.0"
 
 [dependencies]
@@ -24,7 +24,7 @@ panic-halt = "0.2.0"
 
 # this lets you use `cargo fix`!
 [[bin]]
-name = "STM32F3-Discovery-Experiments"
+name = "stm32_f3_discovery_experiments"
 test = false
 bench = false
 
